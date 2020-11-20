@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HiTechDistribution_Matheus_1931358.GUI;
 
 namespace HiTechDistribution_Matheus_1931358
 {
@@ -16,7 +17,7 @@ namespace HiTechDistribution_Matheus_1931358
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormLogin());
         }
     }
 }
