@@ -88,10 +88,6 @@
       <Project>{d70253e1-2dbf-4205-98a4-bdb27dc18ce1}</Project>
       <Name>Module1</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HiTechDistribution_Matheus_1931358\HiTechDistribution_Matheus_1931358.csproj">
-      <Project>{36fd1137-94e5-4dcf-9b9f-6aa61535a957}</Project>
-      <Name>HiTechDistribution_Matheus_1931358</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

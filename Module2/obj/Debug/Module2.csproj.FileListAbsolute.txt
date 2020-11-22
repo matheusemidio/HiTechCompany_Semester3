@@ -6,12 +6,9 @@ D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\obj
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module2.exe.config
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module2.exe
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module2.pdb
-D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\HiTechDistribution_Matheus_1931358.exe
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module1.exe
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module1.pdb
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\Module1.exe.config
-D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\HiTechDistribution_Matheus_1931358.pdb
-D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\bin\Debug\HiTechDistribution_Matheus_1931358.exe.config
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\obj\Debug\Module2.csproj.CopyComplete
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\obj\Debug\Module2.exe
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\Module2\obj\Debug\Module2.pdb

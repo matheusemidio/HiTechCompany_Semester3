@@ -28,7 +28,7 @@ namespace Module2.Business
         public string PostalCode { get => postalCode; set => postalCode = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string FaxNumber { get => faxNumber; set => faxNumber = value; }
-        public string Email { get => faxNumber; set => faxNumber = value; }
+        public string Email { get => email; set => email = value; }
         public int CreditLimit { get => creditLimit; set => creditLimit = value; }
 
 
