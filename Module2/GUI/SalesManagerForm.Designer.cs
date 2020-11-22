@@ -427,7 +427,7 @@
             this.dataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCustomers.Location = new System.Drawing.Point(303, 286);
             this.dataGridViewCustomers.Name = "dataGridViewCustomers";
-            this.dataGridViewCustomers.Size = new System.Drawing.Size(507, 116);
+            this.dataGridViewCustomers.Size = new System.Drawing.Size(519, 116);
             this.dataGridViewCustomers.TabIndex = 28;
             // 
             // SalesManagerForm
