@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Module3.GUI
 {
-    public partial class InventoryControllerForm : Form
+    public partial class CategoriesForm : Form
     {
-        public InventoryControllerForm()
+        public CategoriesForm()
         {
             InitializeComponent();
         }

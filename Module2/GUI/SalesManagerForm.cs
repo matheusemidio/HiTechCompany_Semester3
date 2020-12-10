@@ -76,8 +76,45 @@ namespace Module2.GUI
                 return;
             }
 
+            string tempCredit = textBoxCreditLimit.Text.Trim();
+            if (!(Validator.isValidCreditLimit(tempCredit)))
+            {
+                MessageBox.Show("Invalid Credit Limit", "Invalid Credit Limit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCreditLimit.Clear();
+                textBoxCreditLimit.Focus();
+                return;
+            }
+
+ 
+            string tempPhoneNumber = textBoxPhoneNumber.Text.Trim();
+            if (!(Validator.isValidPhoneNumber(tempPhoneNumber)))
+            {
+                MessageBox.Show("Invalid Phone Number", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPhoneNumber.Clear();
+                textBoxPhoneNumber.Focus();
+                return;
+            }
+
+            string tempFaxNumber = textBoxFaxNumber.Text.Trim();
+            if (!(Validator.isValidPhoneNumber(tempFaxNumber)))
+            {
+                MessageBox.Show("Invalid Fax Number", "Invalid Fax Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxFaxNumber.Clear();
+                textBoxFaxNumber.Focus();
+                return;
+            }
+           
+            string tempEmail = textBoxEmail.Text.Trim();
+            if (!(Validator.isValidEmail(tempEmail)))
+            {
+                MessageBox.Show("Invalid Email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEmail.Clear();
+                textBoxEmail.Focus();
+                return;
+            }
+
             string tempStreet = textBoxStreetName.Text.Trim();
-            if (!(Validator.IsValidName(tempStreet)))
+            if (!(Validator.isValidStreetName(tempStreet)))
             {
                 MessageBox.Show("Invalid Street Name", "Invalid Street Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxStreetName.Clear();
@@ -104,16 +141,11 @@ namespace Module2.GUI
             }
 
             string tempPostalCode = textBoxPostalCode.Text.Trim();
-            string tempPhone = textBoxPhoneNumber.Text.Trim();
-            string tempFax = textBoxFaxNumber.Text.Trim();
-            string tempEmail = textBoxEmail.Text.Trim();
-
-            string tempCredit = textBoxCreditLimit.Text.Trim();
-            if (!(Validator.isValidCreditLimit(tempCredit)))
+            if (!(Validator.isValidPostalCode(tempPostalCode)))
             {
-                MessageBox.Show("Invalid Credit Limit", "Invalid Credit Limit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxCreditLimit.Clear();
-                textBoxCreditLimit.Focus();
+                MessageBox.Show("Invalid Postal Code", "Invalid Postal Code", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPostalCode.Clear();
+                textBoxPostalCode.Focus();
                 return;
             }
 
@@ -244,55 +276,54 @@ namespace Module2.GUI
                         textBoxCustomerName.Focus();
                         return;
                     }
-                    Customer cust1 = new Customer();
-                    //DataRow dr3 = new DataRow();
-                    //DataRow dr2 = dtCustomers.Rows.Find(tempCustName.ToString());
-                    //List<DataRow> list = list.Any(DataRow => DataRow["FirstName"].Equals(tempCustName.ToString()));
-                    //List<DataRow> listDr = listDr.FindAll(dr3["FirstName"] tempCustName.ToString());
-                    DataRow[] rows = dtCustomers.Select("FirstName =" + tempCustName,ToString());
-
-                    if (rows != null)  //found
+                    List<Customer> listCustomer = new List<Customer>();
+                    Customer customer = new Customer();
+                    listCustomer = customer.CustomerList();
+                    if (listCustomer == null)
                     {
-                        foreach(DataRow dr2 in rows)
-                        {
-                            cust1.CustomerId = Convert.ToInt32(dr2["CustomerId"]);
-                            cust1.CustomerName = dr2["CustomerName"].ToString();
-                            cust1.StreetName = dr2["StreetName"].ToString();
-                            cust1.City = dr2["City"].ToString();
-                            cust1.Province = dr2["Province"].ToString();
-                            cust1.PostalCode = dr2["PostalCode"].ToString();
-                            cust1.PhoneNumber = dr2["PhoneNumber"].ToString();
-                            cust1.FaxNumber = dr2["FaxNumber"].ToString();
-                            cust1.Email = dr2["Email"].ToString();
-                            cust1.CreditLimit = Convert.ToInt32(dr2["CreditLimit"]);
-                        }
-                        //dataGridViewCustomers.Rows.Clear();
-                        //dataGridViewCustomers.Refresh();
-                        //Customer cust = new Customer();
-                        //cust.CustomerId = Convert.ToInt32(dr2["CustomerId"]);
-                        //cust.CustomerName = dr2["CustomerName"].ToString();
-                        //cust.StreetName = dr2["StreetName"].ToString();
-                        //cust.City = dr2["City"].ToString();
-                        //cust.Province = dr2["Province"].ToString();
-                        //cust.PostalCode = dr2["PostalCode"].ToString();
-                        //cust.PhoneNumber = dr2["PhoneNumber"].ToString();
-                        //cust.FaxNumber = dr2["FaxNumber"].ToString();
-                        //cust.Email = dr2["Email"].ToString();
-                        //cust.CreditLimit = Convert.ToInt32(dr2["CreditLimit"]);
+                        MessageBox.Show("Some error occured! Database is empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        Customer cust = new Customer();
+                        bool test = true;
 
-                        if (cust1 == null)
+                        foreach (Customer aCustomer in listCustomer)
                         {
-                            MessageBox.Show("Some error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if(aCustomer.CustomerName.ToLower() == tempCustName.ToLower().ToString())
+                            {
+                                cust.CustomerId = aCustomer.CustomerId;
+                                cust.CustomerName = aCustomer.CustomerName;
+                                cust.StreetName = aCustomer.StreetName;
+                                cust.City = aCustomer.City;
+                                cust.Province = aCustomer.Province;
+                                cust.PostalCode = aCustomer.PostalCode;
+                                cust.PhoneNumber = aCustomer.PhoneNumber;
+                                cust.FaxNumber = aCustomer.FaxNumber;
+                                cust.Email = aCustomer.Email;
+                                cust.CreditLimit = aCustomer.CreditLimit;
+
+                                if (cust == null)
+                                {
+                                    MessageBox.Show("Some error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    dataGridViewCustomers.DataSource = new List<Customer> { cust };
+                                    test = false;
+                                }
+                            }
+
                         }
-                        else
+                        if(test)
                         {
-                            dataGridViewCustomers.DataSource = new List<Customer> { cust1 };
+                            MessageBox.Show("Customer does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            textBoxInput.Clear();
+                            textBoxInput.Focus();
+                            dataGridViewCustomers.DataSource = null;
                         }
                     }
-                        break;
-                default:
                     break;
-
             }
         }
 
@@ -325,6 +356,43 @@ namespace Module2.GUI
                 return;
             }
 
+            string tempCredit = textBoxCreditLimit.Text.Trim();
+            if (!(Validator.isValidCreditLimit(tempCredit)))
+            {
+                MessageBox.Show("Invalid Credit Limit", "Invalid Credit Limit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCreditLimit.Clear();
+                textBoxCreditLimit.Focus();
+                return;
+            }
+
+
+            string tempPhoneNumber = textBoxPhoneNumber.Text.Trim();
+            if (!(Validator.isValidPhoneNumber(tempPhoneNumber)))
+            {
+                MessageBox.Show("Invalid Phone Number", "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPhoneNumber.Clear();
+                textBoxPhoneNumber.Focus();
+                return;
+            }
+
+            string tempFaxNumber = textBoxFaxNumber.Text.Trim();
+            if (!(Validator.isValidPhoneNumber(tempFaxNumber)))
+            {
+                MessageBox.Show("Invalid Fax Number", "Invalid Fax Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxFaxNumber.Clear();
+                textBoxFaxNumber.Focus();
+                return;
+            }
+
+            string tempEmail = textBoxEmail.Text.Trim();
+            if (!(Validator.isValidEmail(tempEmail)))
+            {
+                MessageBox.Show("Invalid Email", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEmail.Clear();
+                textBoxEmail.Focus();
+                return;
+            }
+
             string tempStreet = textBoxStreetName.Text.Trim();
             if (!(Validator.IsValidName(tempStreet)))
             {
@@ -353,18 +421,15 @@ namespace Module2.GUI
             }
 
             string tempPostalCode = textBoxPostalCode.Text.Trim();
-            string tempPhone = textBoxPhoneNumber.Text.Trim();
-            string tempFax = textBoxFaxNumber.Text.Trim();
-            string tempEmail = textBoxEmail.Text.Trim();
-
-            string tempCredit = textBoxCreditLimit.Text.Trim();
-            if (!(Validator.isValidCreditLimit(tempCredit)))
+            if (!(Validator.isValidPostalCode(tempPostalCode)))
             {
-                MessageBox.Show("Invalid Credit Limit", "Invalid Credit Limit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxCreditLimit.Clear();
-                textBoxCreditLimit.Focus();
+                MessageBox.Show("Invalid Postal Code", "Invalid Postal Code", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPostalCode.Clear();
+                textBoxPostalCode.Focus();
                 return;
             }
+
+
 
             DataRow dr = dtCustomers.NewRow();
             dr = dtCustomers.Rows.Find(tempCustId);

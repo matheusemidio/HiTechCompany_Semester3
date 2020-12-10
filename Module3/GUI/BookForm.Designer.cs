@@ -1,6 +1,6 @@
 ﻿namespace Module3.GUI
 {
-    partial class InventoryControllerForm
+    partial class BookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,24 +42,31 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxISBN = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxCategoryID = new System.Windows.Forms.TextBox();
-            this.textBoxPublisherID = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxQOH = new System.Windows.Forms.TextBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxUnitPrice = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxCategoryID = new System.Windows.Forms.TextBox();
+            this.textBoxPublisherID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.buttonListPublishers = new System.Windows.Forms.Button();
             this.buttonListCategories = new System.Windows.Forms.Button();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.booksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publisherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.authorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.authorBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewCustomers
@@ -216,57 +223,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Information";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ISBN";
-            // 
-            // textBoxISBN
-            // 
-            this.textBoxISBN.Location = new System.Drawing.Point(107, 25);
-            this.textBoxISBN.Name = "textBoxISBN";
-            this.textBoxISBN.Size = new System.Drawing.Size(113, 20);
-            this.textBoxISBN.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Publisher ID";
-            // 
-            // textBoxCategoryID
-            // 
-            this.textBoxCategoryID.Location = new System.Drawing.Point(104, 66);
-            this.textBoxCategoryID.Name = "textBoxCategoryID";
-            this.textBoxCategoryID.Size = new System.Drawing.Size(113, 20);
-            this.textBoxCategoryID.TabIndex = 12;
-            // 
-            // textBoxPublisherID
-            // 
-            this.textBoxPublisherID.Location = new System.Drawing.Point(104, 102);
-            this.textBoxPublisherID.Name = "textBoxPublisherID";
-            this.textBoxPublisherID.Size = new System.Drawing.Size(113, 20);
-            this.textBoxPublisherID.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Category ID";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -318,6 +274,57 @@
             this.textBoxUnitPrice.Size = new System.Drawing.Size(113, 20);
             this.textBoxUnitPrice.TabIndex = 18;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Publisher ID";
+            // 
+            // textBoxCategoryID
+            // 
+            this.textBoxCategoryID.Location = new System.Drawing.Point(104, 66);
+            this.textBoxCategoryID.Name = "textBoxCategoryID";
+            this.textBoxCategoryID.Size = new System.Drawing.Size(113, 20);
+            this.textBoxCategoryID.TabIndex = 12;
+            // 
+            // textBoxPublisherID
+            // 
+            this.textBoxPublisherID.Location = new System.Drawing.Point(104, 102);
+            this.textBoxPublisherID.Name = "textBoxPublisherID";
+            this.textBoxPublisherID.Size = new System.Drawing.Size(113, 20);
+            this.textBoxPublisherID.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Category ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ISBN";
+            // 
+            // textBoxISBN
+            // 
+            this.textBoxISBN.Location = new System.Drawing.Point(107, 25);
+            this.textBoxISBN.Name = "textBoxISBN";
+            this.textBoxISBN.Size = new System.Drawing.Size(113, 20);
+            this.textBoxISBN.TabIndex = 0;
+            // 
             // buttonListPublishers
             // 
             this.buttonListPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,26 +345,74 @@
             this.buttonListCategories.Text = "List Categories";
             this.buttonListCategories.UseVisualStyleBackColor = true;
             // 
-            // InventoryControllerForm
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.booksToolStripMenuItem1,
+            this.categoriesToolStripMenuItem,
+            this.publisherToolStripMenuItem,
+            this.authorsToolStripMenuItem,
+            this.authorBooksToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(855, 24);
+            this.menuStrip2.TabIndex = 36;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // booksToolStripMenuItem1
+            // 
+            this.booksToolStripMenuItem1.Name = "booksToolStripMenuItem1";
+            this.booksToolStripMenuItem1.Size = new System.Drawing.Size(51, 20);
+            this.booksToolStripMenuItem1.Text = "Books";
+            // 
+            // categoriesToolStripMenuItem
+            // 
+            this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.categoriesToolStripMenuItem.Text = "Categories";
+            // 
+            // publisherToolStripMenuItem
+            // 
+            this.publisherToolStripMenuItem.Name = "publisherToolStripMenuItem";
+            this.publisherToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.publisherToolStripMenuItem.Text = "Publisher";
+            // 
+            // authorsToolStripMenuItem
+            // 
+            this.authorsToolStripMenuItem.Name = "authorsToolStripMenuItem";
+            this.authorsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.authorsToolStripMenuItem.Text = "Authors";
+            // 
+            // authorBooksToolStripMenuItem
+            // 
+            this.authorBooksToolStripMenuItem.Name = "authorBooksToolStripMenuItem";
+            this.authorBooksToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.authorBooksToolStripMenuItem.Text = "AuthorBooks";
+            // 
+            // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 474);
+            this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.buttonListCategories);
             this.Controls.Add(this.buttonListPublishers);
             this.Controls.Add(this.dataGridViewCustomers);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonListBooks);
             this.Controls.Add(this.groupBox1);
-            this.Name = "InventoryControllerForm";
-            this.Text = "Inventory Controller Maintenance";
+            this.Name = "BookForm";
+            this.Text = "Book  Maintenance";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -391,5 +446,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonListPublishers;
         private System.Windows.Forms.Button buttonListCategories;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem booksToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem publisherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem authorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem authorBooksToolStripMenuItem;
     }
 }

@@ -46,13 +46,14 @@ namespace HiTechDistribution_Matheus_1931358.GUI
             User user = new User();
             user.UserId = Convert.ToInt32(textBoxUserId.Text.Trim());
             user.Password = textBoxPassword.Text.Trim();
+            
 
             //Checking 
             if (user.SearchUser(user.UserId) != null)  //User exists
             {
                 if (user.SearchUser(user.UserId).Password == user.Password)
                 {
-                    if (Validator.isValidUserStatus(user.SearchUser(user.UserId).UserStatus)) //User is active
+                    if ((Validator.isValidUserStatus(user.SearchUser(user.UserId).UserStatus)) && (user.SearchUser(user.UserId).UserStatus.ToString().ToLower()) == "active") //User is active
                     {
                         Employee emp = new Employee();
                         if (emp.SearchEmployee(user.UserId).JobId == 1)
@@ -89,7 +90,7 @@ namespace HiTechDistribution_Matheus_1931358.GUI
                 }
                 else
                 {
-                    MessageBox.Show("Wrong Password.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Wrong User ID or Password.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     textBoxPassword.Clear();
                 }
 
@@ -100,6 +101,11 @@ namespace HiTechDistribution_Matheus_1931358.GUI
                 MessageBox.Show("User does not exist.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxUserId.Clear();
             }
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

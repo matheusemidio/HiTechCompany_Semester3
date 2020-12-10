@@ -46,16 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\InventoryControllerForm.cs">
+    <Compile Include="GUI\AuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\InventoryControllerForm.Designer.cs">
-      <DependentUpon>InventoryControllerForm.cs</DependentUpon>
+    <Compile Include="GUI\AuthorForm.Designer.cs">
+      <DependentUpon>AuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AuthorBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AuthorBooksForm.Designer.cs">
+      <DependentUpon>AuthorBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CategoriesForm.Designer.cs">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PublishersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\PublishersForm.Designer.cs">
+      <DependentUpon>PublishersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\InventoryControllerForm.resx">
-      <DependentUpon>InventoryControllerForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\AuthorBooksForm.resx">
+      <DependentUpon>AuthorBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AuthorForm.resx">
+      <DependentUpon>AuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BookForm.resx">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\PublishersForm.resx">
+      <DependentUpon>PublishersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
