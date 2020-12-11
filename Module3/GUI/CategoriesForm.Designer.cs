@@ -76,6 +76,7 @@
             this.buttonExit.TabIndex = 38;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonListCategories
             // 
@@ -86,6 +87,7 @@
             this.buttonListCategories.TabIndex = 37;
             this.buttonListCategories.Text = "List Categories";
             this.buttonListCategories.UseVisualStyleBackColor = true;
+            this.buttonListCategories.Click += new System.EventHandler(this.buttonListCategories_Click);
             // 
             // groupBox1
             // 
@@ -119,6 +121,7 @@
             this.buttonUpdate.TabIndex = 20;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonAdd
             // 
@@ -129,6 +132,7 @@
             this.buttonAdd.TabIndex = 19;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // groupBox4
             // 
@@ -210,6 +214,7 @@
             this.buttonSearch.TabIndex = 15;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // textBoxInput
             // 
@@ -220,14 +225,16 @@
             // 
             // comboBox
             // 
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
             this.comboBox.Items.AddRange(new object[] {
-            "Customer ID",
-            "Customer Name"});
+            "Category ID",
+            "Category Name"});
             this.comboBox.Location = new System.Drawing.Point(102, 18);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(128, 21);
             this.comboBox.TabIndex = 13;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -258,30 +265,35 @@
             this.booksToolStripMenuItem1.Name = "booksToolStripMenuItem1";
             this.booksToolStripMenuItem1.Size = new System.Drawing.Size(51, 20);
             this.booksToolStripMenuItem1.Text = "Books";
+            this.booksToolStripMenuItem1.Click += new System.EventHandler(this.booksToolStripMenuItem1_Click_1);
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
             this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click_1);
             // 
             // publisherToolStripMenuItem
             // 
             this.publisherToolStripMenuItem.Name = "publisherToolStripMenuItem";
             this.publisherToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.publisherToolStripMenuItem.Text = "Publisher";
+            this.publisherToolStripMenuItem.Click += new System.EventHandler(this.publisherToolStripMenuItem_Click_1);
             // 
             // authorsToolStripMenuItem
             // 
             this.authorsToolStripMenuItem.Name = "authorsToolStripMenuItem";
             this.authorsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.authorsToolStripMenuItem.Text = "Authors";
+            this.authorsToolStripMenuItem.Click += new System.EventHandler(this.authorsToolStripMenuItem_Click_1);
             // 
             // authorBooksToolStripMenuItem
             // 
             this.authorBooksToolStripMenuItem.Name = "authorBooksToolStripMenuItem";
             this.authorBooksToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.authorBooksToolStripMenuItem.Text = "AuthorBooks";
+            this.authorBooksToolStripMenuItem.Click += new System.EventHandler(this.authorBooksToolStripMenuItem_Click_1);
             // 
             // CategoriesForm
             // 
@@ -295,6 +307,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "CategoriesForm";
             this.Text = "Categories Maintenance";
+            this.Load += new System.EventHandler(this.CategoriesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Author.cs" />
+    <Compile Include="Business\AuthorBook.cs" />
+    <Compile Include="Business\Book.cs" />
+    <Compile Include="Business\Category.cs" />
+    <Compile Include="Business\Publisher.cs" />
+    <Compile Include="DAL\AuthorBookDB.cs" />
+    <Compile Include="DAL\AuthorDB.cs" />
+    <Compile Include="DAL\BookDB.cs" />
+    <Compile Include="DAL\CategoryDB.cs" />
+    <Compile Include="DAL\PublisherDB.cs" />
+    <Compile Include="DAL\UtilityDB.cs" />
     <Compile Include="GUI\AuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +128,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="DAL\" />
+    <ProjectReference Include="..\..\Modules\Module1\Module1.csproj">
+      <Project>{d70253e1-2dbf-4205-98a4-bdb27dc18ce1}</Project>
+      <Name>Module1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

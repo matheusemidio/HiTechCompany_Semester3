@@ -17,7 +17,7 @@ namespace Module2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new SalesManagerForm());
+            Application.Run(new SalesManagerForm());
         }
     }
 }

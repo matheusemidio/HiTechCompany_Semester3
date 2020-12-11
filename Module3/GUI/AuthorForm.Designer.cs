@@ -40,16 +40,16 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxAuthorId = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.labelDisplay = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxAuthorId = new System.Windows.Forms.TextBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.booksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +80,7 @@
             this.buttonExit.TabIndex = 38;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonListAuthors
             // 
@@ -90,6 +91,7 @@
             this.buttonListAuthors.TabIndex = 37;
             this.buttonListAuthors.Text = "List Authors";
             this.buttonListAuthors.UseVisualStyleBackColor = true;
+            this.buttonListAuthors.Click += new System.EventHandler(this.buttonListAuthors_Click);
             // 
             // groupBox1
             // 
@@ -123,6 +125,7 @@
             this.buttonUpdate.TabIndex = 20;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonAdd
             // 
@@ -133,6 +136,7 @@
             this.buttonAdd.TabIndex = 19;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // groupBox4
             // 
@@ -186,6 +190,70 @@
             this.textBoxFirstName.Size = new System.Drawing.Size(113, 20);
             this.textBoxFirstName.TabIndex = 12;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.labelDisplay);
+            this.groupBox5.Controls.Add(this.buttonSearch);
+            this.groupBox5.Controls.Add(this.textBoxInput);
+            this.groupBox5.Controls.Add(this.comboBox);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Location = new System.Drawing.Point(259, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(268, 164);
+            this.groupBox5.TabIndex = 30;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Search";
+            // 
+            // labelDisplay
+            // 
+            this.labelDisplay.AutoSize = true;
+            this.labelDisplay.Location = new System.Drawing.Point(3, 52);
+            this.labelDisplay.Name = "labelDisplay";
+            this.labelDisplay.Size = new System.Drawing.Size(59, 13);
+            this.labelDisplay.TabIndex = 16;
+            this.labelDisplay.Text = "Information";
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSearch.Location = new System.Drawing.Point(102, 117);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(127, 26);
+            this.buttonSearch.TabIndex = 15;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxInput
+            // 
+            this.textBoxInput.Location = new System.Drawing.Point(102, 68);
+            this.textBoxInput.Name = "textBoxInput";
+            this.textBoxInput.Size = new System.Drawing.Size(128, 20);
+            this.textBoxInput.TabIndex = 14;
+            // 
+            // comboBox
+            // 
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Items.AddRange(new object[] {
+            "Author ID\t",
+            "Author Name"});
+            this.comboBox.Location = new System.Drawing.Point(102, 18);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(128, 21);
+            this.comboBox.TabIndex = 13;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Search by";
+            // 
             // textBoxLastName
             // 
             this.textBoxLastName.Location = new System.Drawing.Point(104, 102);
@@ -220,67 +288,6 @@
             this.textBoxAuthorId.Size = new System.Drawing.Size(113, 20);
             this.textBoxAuthorId.TabIndex = 0;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.labelDisplay);
-            this.groupBox5.Controls.Add(this.buttonSearch);
-            this.groupBox5.Controls.Add(this.textBoxInput);
-            this.groupBox5.Controls.Add(this.comboBox);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(259, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(268, 164);
-            this.groupBox5.TabIndex = 30;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Search";
-            // 
-            // labelDisplay
-            // 
-            this.labelDisplay.AutoSize = true;
-            this.labelDisplay.Location = new System.Drawing.Point(3, 52);
-            this.labelDisplay.Name = "labelDisplay";
-            this.labelDisplay.Size = new System.Drawing.Size(59, 13);
-            this.labelDisplay.TabIndex = 16;
-            this.labelDisplay.Text = "Information";
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearch.Location = new System.Drawing.Point(102, 117);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(127, 26);
-            this.buttonSearch.TabIndex = 15;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            // 
-            // textBoxInput
-            // 
-            this.textBoxInput.Location = new System.Drawing.Point(102, 68);
-            this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(128, 20);
-            this.textBoxInput.TabIndex = 14;
-            // 
-            // comboBox
-            // 
-            this.comboBox.FormattingEnabled = true;
-            this.comboBox.Items.AddRange(new object[] {
-            "Customer ID",
-            "Customer Name"});
-            this.comboBox.Location = new System.Drawing.Point(102, 18);
-            this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(128, 21);
-            this.comboBox.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Search by";
-            // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -300,30 +307,35 @@
             this.booksToolStripMenuItem1.Name = "booksToolStripMenuItem1";
             this.booksToolStripMenuItem1.Size = new System.Drawing.Size(51, 20);
             this.booksToolStripMenuItem1.Text = "Books";
+            this.booksToolStripMenuItem1.Click += new System.EventHandler(this.booksToolStripMenuItem1_Click_1);
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
             this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click_1);
             // 
             // publisherToolStripMenuItem
             // 
             this.publisherToolStripMenuItem.Name = "publisherToolStripMenuItem";
             this.publisherToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.publisherToolStripMenuItem.Text = "Publisher";
+            this.publisherToolStripMenuItem.Click += new System.EventHandler(this.publisherToolStripMenuItem_Click_1);
             // 
             // authorsToolStripMenuItem
             // 
             this.authorsToolStripMenuItem.Name = "authorsToolStripMenuItem";
             this.authorsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.authorsToolStripMenuItem.Text = "Authors";
+            this.authorsToolStripMenuItem.Click += new System.EventHandler(this.authorsToolStripMenuItem_Click_1);
             // 
             // authorBooksToolStripMenuItem
             // 
             this.authorBooksToolStripMenuItem.Name = "authorBooksToolStripMenuItem";
             this.authorBooksToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.authorBooksToolStripMenuItem.Text = "AuthorBooks";
+            this.authorBooksToolStripMenuItem.Click += new System.EventHandler(this.authorBooksToolStripMenuItem_Click_1);
             // 
             // AuthorForm
             // 
@@ -337,6 +349,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AuthorForm";
             this.Text = "Author Maintenance";
+            this.Load += new System.EventHandler(this.AuthorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

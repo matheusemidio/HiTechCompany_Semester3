@@ -228,8 +228,8 @@ namespace Module2.GUI
                     if (!(Validator.isValidCustmerId(tempCustId)))
                     {
                         MessageBox.Show("Customer ID must be 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBoxCustomerID.Clear();
-                        textBoxCustomerID.Focus();
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
                         return;
                     }
                     DataRow dr = dtCustomers.Rows.Find(tempCustId);
@@ -272,8 +272,8 @@ namespace Module2.GUI
                     if (!(Validator.IsValidName(tempCustName)))
                     {
                         MessageBox.Show("Invalid Customer Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBoxCustomerName.Clear();
-                        textBoxCustomerName.Focus();
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
                         return;
                     }
                     List<Customer> listCustomer = new List<Customer>();
@@ -300,7 +300,7 @@ namespace Module2.GUI
                                 cust.PostalCode = aCustomer.PostalCode;
                                 cust.PhoneNumber = aCustomer.PhoneNumber;
                                 cust.FaxNumber = aCustomer.FaxNumber;
-                                cust.Email = aCustomer.Email;
+                                cust.Email = aCustomer.Email; 
                                 cust.CreditLimit = aCustomer.CreditLimit;
 
                                 if (cust == null)
