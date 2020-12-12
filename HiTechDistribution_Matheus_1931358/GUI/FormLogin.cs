@@ -11,6 +11,7 @@ using Module1.Business;
 using Module1.Validation;
 using Module1.GUI;
 using Module2.GUI;
+using Module3.GUI;
 
 
 namespace HiTechDistribution_Matheus_1931358.GUI
@@ -70,7 +71,9 @@ namespace HiTechDistribution_Matheus_1931358.GUI
                         }
                         if (emp.SearchEmployee(user.UserId).JobId == 3)
                         {
-
+                            BookForm bookForm = new BookForm();
+                            this.Hide();
+                            bookForm.ShowDialog();
                         }
                         if (emp.SearchEmployee(user.UserId).JobId == 4)
                         {

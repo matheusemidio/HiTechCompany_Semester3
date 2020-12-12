@@ -33,9 +33,39 @@ namespace Module3.GUI
         {
             //Validation
             string tempIsbn = textBoxISBN.Text.Trim();
-            string tempTitle = textBoxTitle.Text.Trim();
-            string tempUnitPrice = textBoxUnitPrice.Text.Trim();
+            if (!(Validator.isValidISBN(tempIsbn)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
             string tempQOH = textBoxQOH.Text.Trim();
+            if (!(Validator.isValidUnitPrice(tempQOH)))
+            {
+                MessageBox.Show("Invalid QOH", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxQOH.Clear();
+                textBoxQOH.Focus();
+                return;
+            }
+
+            string tempTitle = textBoxTitle.Text.Trim();
+            if (!(Validator.isValidStreetName(tempTitle)))
+            {
+                MessageBox.Show("Invalid Title", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxTitle.Clear();
+                textBoxTitle.Focus();
+                return;
+            }
+            string tempUnitPrice = textBoxUnitPrice.Text.Trim();
+            if (!(Validator.isValidUnitPrice(tempUnitPrice)))
+            {
+                MessageBox.Show("Invalid Unit Price", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxUnitPrice.Clear();
+                textBoxUnitPrice.Focus();
+                return;
+            }
+
             //string tempCategoryId = textBoxCategoryID.Text.Trim();
             string tempCategoryId = comboBoxCategory.SelectedValue.ToString();
             //string tempPublisherId = textBoxPublisherID.Text.Trim();
@@ -67,7 +97,7 @@ namespace Module3.GUI
                 dtBooks.Rows.Add(dr);
                 da.Update(dsHiTech, "Books");
 
-                MessageBox.Show("Book information was saved succssfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Book information was saved successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -220,9 +250,39 @@ namespace Module3.GUI
         {
             //Validation
             string tempIsbn = textBoxISBN.Text.Trim();
-            string tempTitle = textBoxTitle.Text.Trim();
-            string tempUnitPrice = textBoxUnitPrice.Text.Trim();
+            if (!(Validator.isValidISBN(tempIsbn)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
             string tempQOH = textBoxQOH.Text.Trim();
+            if (!(Validator.isValidUnitPrice(tempQOH)))
+            {
+                MessageBox.Show("Invalid QOH", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxQOH.Clear();
+                textBoxQOH.Focus();
+                return;
+            }
+
+            string tempTitle = textBoxTitle.Text.Trim();
+            if (!(Validator.isValidStreetName(tempTitle)))
+            {
+                MessageBox.Show("Invalid Title", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxTitle.Clear();
+                textBoxTitle.Focus();
+                return;
+            }
+            string tempUnitPrice = textBoxUnitPrice.Text.Trim();
+            if (!(Validator.isValidUnitPrice(tempUnitPrice)))
+            {
+                MessageBox.Show("Invalid Unit Price", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxUnitPrice.Clear();
+                textBoxUnitPrice.Focus();
+                return;
+            }
+
             //string tempCategoryId = textBoxCategoryID.Text.Trim();
             string tempCategoryId = comboBoxCategory.SelectedValue.ToString();
             //string tempPublisherId = textBoxPublisherID.Text.Trim();
@@ -290,14 +350,16 @@ namespace Module3.GUI
             {
                 //Search By ISBN
                 case 0:
+                    //Validation
                     string tempInput = textBoxInput.Text.Trim();
-                    //if (!(Validator.isValidCustmerId(tempInput)))
-                    //{
-                    //    MessageBox.Show("ISBN must be a 13-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    textBoxInput.Clear();
-                    //    textBoxInput.Focus();
-                    //    return;
-                    //}
+                    if (!(Validator.isValidISBN(tempInput)))
+                    {
+                        MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
+                        return;
+                    }
+
                     DataRow dr = dtBooks.Rows.Find(tempInput);
                     if (dr != null)  //found
                     {
@@ -332,8 +394,9 @@ namespace Module3.GUI
                     break;
                 case 1:
                     //Serch by Customer Name
+
                     string tempInput2 = textBoxInput.Text.Trim();
-                    if (!(Validator.IsValidName(tempInput2)))
+                    if (!(Validator.isValidStreetName(tempInput2)))
                     {
                         MessageBox.Show("Invalid Book Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
@@ -399,6 +462,73 @@ namespace Module3.GUI
             {
                 Application.Exit();
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            ////Validation
+            //string tempIsbn = textBoxISBN.Text.Trim();
+            //if (!(Validator.isValidISBN(tempIsbn)))
+            //{
+            //    MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxISBN.Clear();
+            //    textBoxISBN.Focus();
+            //    return;
+            //}
+            //string tempQOH = textBoxQOH.Text.Trim();
+            //if (!(Validator.isValidUnitPrice(tempQOH)))
+            //{
+            //    MessageBox.Show("Invalid QOH", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxQOH.Clear();
+            //    textBoxQOH.Focus();
+            //    return;
+            //}
+
+            //string tempTitle = textBoxTitle.Text.Trim();
+            //if (!(Validator.isValidStreetName(tempTitle)))
+            //{
+            //    MessageBox.Show("Invalid Title", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxTitle.Clear();
+            //    textBoxTitle.Focus();
+            //    return;
+            //}
+            //string tempUnitPrice = textBoxUnitPrice.Text.Trim();
+            //if (!(Validator.isValidUnitPrice(tempUnitPrice)))
+            //{
+            //    MessageBox.Show("Invalid Unit Price", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxUnitPrice.Clear();
+            //    textBoxUnitPrice.Focus();
+            //    return;
+            //}
+
+            ////string tempCategoryId = textBoxCategoryID.Text.Trim();
+            //string tempCategoryId = comboBoxCategory.SelectedValue.ToString();
+            ////string tempPublisherId = textBoxPublisherID.Text.Trim();
+            //string tempPublisherId = comboBoxPublisher.SelectedValue.ToString();
+
+
+            ////Operation
+            //DataRow dr = dtBooks.NewRow(); 
+            //dr = dtBooks.Rows.Find(tempIsbn);
+
+            //if (dr != null) //Exists
+            //{
+            //    if (Convert.ToInt64(dr["ISBN"]) == Convert.ToInt64(textBoxISBN.Text))
+            //    {
+
+            //        dr.Delete();
+            //        da.Update(dsHiTech, "Books");
+            //        MessageBox.Show(dr.RowState.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+
+            //}
+            //else //Does not exists
+            //{
+
+            //    MessageBox.Show("Book is not on the Database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxISBN.Clear();
+            //    textBoxISBN.Focus();
+            //}
         }
     }
 }

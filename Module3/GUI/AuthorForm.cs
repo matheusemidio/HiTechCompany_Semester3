@@ -31,9 +31,38 @@ namespace Module3.GUI
         {
             //Validation
             string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
             string tempAuthorFirstName = textBoxFirstName.Text.Trim();
+            if (!(Validator.IsValidName(tempAuthorFirstName)))
+            {
+                MessageBox.Show("Author First Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxFirstName.Clear();
+                textBoxFirstName.Focus();
+                return;
+            }
             string tempLastName = textBoxLastName.Text.Trim();
+            if (!(Validator.IsValidName(tempLastName)))
+            {
+                MessageBox.Show("Author Last Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxLastName.Clear();
+                textBoxLastName.Focus();
+                return;
+            }
+
             string tempEmail = textBoxEmail.Text.Trim();
+            if (!(Validator.isValidEmail(tempEmail)))
+            {
+                MessageBox.Show("Email is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEmail.Clear();
+                textBoxEmail.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr;
@@ -133,7 +162,7 @@ namespace Module3.GUI
                     textBoxInput.Focus();
                     break;
                 case 1:
-                    labelDisplay.Text = "Please enter the Author Name";
+                    labelDisplay.Text = "Please enter the Author First Name";
                     textBoxInput.Clear();
                     textBoxInput.Focus();
                     break;
@@ -151,13 +180,14 @@ namespace Module3.GUI
                 //Search By Author ID
                 case 0:
                     string tempInput = textBoxInput.Text.Trim();
-                    //if (!(Validator.isValidCustmerId(tempInput)))
-                    //{
-                    //    MessageBox.Show("ISBN must be a 13-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    textBoxInput.Clear();
-                    //    textBoxInput.Focus();
-                    //    return;
-                    //}
+                    if (!(Validator.isValidTwoDigitId(tempInput)))
+                    {
+                        MessageBox.Show("Author ID must be a 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
+                        return;
+                    }
+
                     DataRow dr = dtAuthor.Rows.Find(tempInput);
                     if (dr != null)  //found
                     {
@@ -194,7 +224,7 @@ namespace Module3.GUI
                     string tempInput2 = textBoxInput.Text.Trim();
                     if (!(Validator.IsValidName(tempInput2)))
                     {
-                        MessageBox.Show("Invalid Book Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Author First Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
                         textBoxInput.Focus();
                         return;
@@ -273,9 +303,38 @@ namespace Module3.GUI
         {
             //Validation
             string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
             string tempAuthorFirstName = textBoxFirstName.Text.Trim();
+            if (!(Validator.IsValidName(tempAuthorFirstName)))
+            {
+                MessageBox.Show("Author First Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxFirstName.Clear();
+                textBoxFirstName.Focus();
+                return;
+            }
             string tempLastName = textBoxLastName.Text.Trim();
+            if (!(Validator.IsValidName(tempLastName)))
+            {
+                MessageBox.Show("Author Last Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxLastName.Clear();
+                textBoxLastName.Focus();
+                return;
+            }
+
             string tempEmail = textBoxEmail.Text.Trim();
+            if (!(Validator.isValidEmail(tempEmail)))
+            {
+                MessageBox.Show("Email is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEmail.Clear();
+                textBoxEmail.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr = dtAuthor.NewRow();
@@ -315,6 +374,69 @@ namespace Module3.GUI
             }
 
             
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            ////Validation
+            //string tempAuthorId = textBoxAuthorId.Text.Trim();
+            //if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            //{
+            //    MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxAuthorId.Clear();
+            //    textBoxAuthorId.Focus();
+            //    return;
+            //}
+            //string tempAuthorFirstName = textBoxFirstName.Text.Trim();
+            //if (!(Validator.IsValidName(tempAuthorFirstName)))
+            //{
+            //    MessageBox.Show("Author First Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxFirstName.Clear();
+            //    textBoxFirstName.Focus();
+            //    return;
+            //}
+            //string tempLastName = textBoxLastName.Text.Trim();
+            //if (!(Validator.IsValidName(tempLastName)))
+            //{
+            //    MessageBox.Show("Author Last Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxLastName.Clear();
+            //    textBoxLastName.Focus();
+            //    return;
+            //}
+
+            //string tempEmail = textBoxEmail.Text.Trim();
+            //if (!(Validator.isValidEmail(tempEmail)))
+            //{
+            //    MessageBox.Show("Email is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxEmail.Clear();
+            //    textBoxEmail.Focus();
+            //    return;
+            //}
+
+            ////Operation
+            //DataRow dr = dtAuthor.NewRow();
+            //dr = dtAuthor.Rows.Find(tempAuthorId);
+
+            //if (dr != null) //Exists
+            //{
+            //    if (Convert.ToInt32(dr["AuthorId"]) == Convert.ToInt32(tempAuthorId))
+            //    {
+            //        dr.Delete();
+            //        da.Update(dsHiTech, "Authors");
+            //        MessageBox.Show(dr.RowState.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    }
+
+
+            //}
+            //else //Does not exists
+            //{
+
+            //    MessageBox.Show("Author ID is not on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxAuthorId.Clear();
+            //    textBoxAuthorId.Focus();
+            //}
+
         }
     }
 }

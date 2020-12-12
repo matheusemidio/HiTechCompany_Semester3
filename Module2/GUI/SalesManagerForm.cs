@@ -59,7 +59,7 @@ namespace Module2.GUI
         {
             
             string tempCustId = textBoxCustomerID.Text.Trim();
-            if (!(Validator.isValidCustmerId(tempCustId)))
+            if (!(Validator.isValidTwoDigitId(tempCustId)))
             {
                 MessageBox.Show("Customer ID must be 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxCustomerID.Clear();
@@ -225,7 +225,7 @@ namespace Module2.GUI
                 //Search By Customer ID
                 case 0:
                     string tempCustId = textBoxInput.Text.Trim();
-                    if (!(Validator.isValidCustmerId(tempCustId)))
+                    if (!(Validator.isValidTwoDigitId(tempCustId)))
                     {
                         MessageBox.Show("Customer ID must be 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
@@ -339,7 +339,7 @@ namespace Module2.GUI
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             string tempCustId = textBoxCustomerID.Text.Trim();
-            if (!(Validator.isValidCustmerId(tempCustId)))
+            if (!(Validator.isValidTwoDigitId(tempCustId)))
             {
                 MessageBox.Show("Customer ID must be 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxCustomerID.Clear();
@@ -466,7 +466,7 @@ namespace Module2.GUI
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             string tempCustId = textBoxCustomerID.Text.Trim();
-            if (!(Validator.isValidCustmerId(tempCustId)))
+            if (!(Validator.isValidTwoDigitId(tempCustId)))
             {
                 MessageBox.Show("Customer ID must be 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxCustomerID.Clear();

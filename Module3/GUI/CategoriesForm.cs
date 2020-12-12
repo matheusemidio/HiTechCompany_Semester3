@@ -30,8 +30,23 @@ namespace Module3.GUI
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             //Validation
+
             string tempCategoryId = textBoxCategoryID.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempCategoryId)))
+            {
+                MessageBox.Show("Category ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCategoryID.Clear();
+                textBoxCategoryID.Focus();
+                return;
+            }
             string tempCategoryName = textBoxCategoryName.Text.Trim();
+            if (!(Validator.IsValidName(tempCategoryName)))
+            {
+                MessageBox.Show("Category Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCategoryName.Clear();
+                textBoxCategoryName.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr;
@@ -147,7 +162,7 @@ namespace Module3.GUI
                 //Search By ISBN
                 case 0:
                     string tempInput = textBoxInput.Text.Trim();
-                    if (!(Validator.isValidCustmerId(tempInput)))
+                    if (!(Validator.isValidTwoDigitId(tempInput)))
                     {
                         MessageBox.Show("Category ID must be a 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
@@ -186,13 +201,13 @@ namespace Module3.GUI
                 case 1:
                     //Serch by Customer Name
                     string tempInput2 = textBoxInput.Text.Trim();
-                    //if (!(Validator.IsValidName(tempInput2)))
-                    //{
-                    //    MessageBox.Show("Invalid Category Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    textBoxInput.Clear();
-                    //    textBoxInput.Focus();
-                    //    return;
-                    //}
+                    if (!(Validator.IsValidName(tempInput2)))
+                    {
+                        MessageBox.Show("Invalid Category Name", "Invalid Customer Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
+                        return;
+                    }
                     List<Category> listCategory = new List<Category>();
                     Category category = new Category();
                     listCategory = category.CategoryList();
@@ -263,9 +278,22 @@ namespace Module3.GUI
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //Validation
             string tempCategoryId = textBoxCategoryID.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempCategoryId)))
+            {
+                MessageBox.Show("Category ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCategoryID.Clear();
+                textBoxCategoryID.Focus();
+                return;
+            }
             string tempCategoryName = textBoxCategoryName.Text.Trim();
+            if (!(Validator.IsValidName(tempCategoryName)))
+            {
+                MessageBox.Show("Category Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCategoryName.Clear();
+                textBoxCategoryName.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr = dtCategories.NewRow();
@@ -296,6 +324,52 @@ namespace Module3.GUI
                 textBoxCategoryID.Clear();
                 textBoxCategoryID.Focus();
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            //string tempCategoryId = textBoxCategoryID.Text.Trim();
+            //if (!(Validator.isValidTwoDigitId(tempCategoryId)))
+            //{
+            //    MessageBox.Show("Category ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxCategoryID.Clear();
+            //    textBoxCategoryID.Focus();
+            //    return;
+            //}
+            //string tempCategoryName = textBoxCategoryName.Text.Trim();
+            //if (!(Validator.IsValidName(tempCategoryName)))
+            //{
+            //    MessageBox.Show("Category Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxCategoryName.Clear();
+            //    textBoxCategoryName.Focus();
+            //    return;
+            //}
+
+            ////Operation
+            //DataRow dr = dtCategories.NewRow();
+            //dr = dtCategories.Rows.Find(tempCategoryId);
+
+            //if (dr != null) //Exists
+            //{
+            //    if (Convert.ToInt32(dr["CategoryId"]) == Convert.ToInt32(tempCategoryId))
+            //    {
+
+            //        dr.Delete();
+            //        da.Update(dsHiTech, "Categories");
+            //        MessageBox.Show(dr.RowState.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+
+
+            //}
+            //else //Does not exists
+            //{
+
+            //    MessageBox.Show("Category ID is not on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxCategoryID.Clear();
+            //    textBoxCategoryID.Focus();
+            //}
+
+
         }
     }
 }

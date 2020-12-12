@@ -29,8 +29,23 @@ namespace Module3.GUI
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             //Validation
+
             string tempPublisherId = textBoxPublisherId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempPublisherId)))
+            {
+                MessageBox.Show("Publisher ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPublisherId.Clear();
+                textBoxPublisherId.Focus();
+                return;
+            }
             string tempPublisherName = textBoxPublisherName.Text.Trim();
+            if (!(Validator.IsValidName(tempPublisherName)))
+            {
+                MessageBox.Show("Publisher Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPublisherName.Clear();
+                textBoxPublisherName.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr;
@@ -142,9 +157,9 @@ namespace Module3.GUI
                 //Search By ISBN
                 case 0:
                     string tempInput = textBoxInput.Text.Trim();
-                    if (!(Validator.isValidCustmerId(tempInput)))
+                    if (!(Validator.isValidTwoDigitId(tempInput)))
                     {
-                        MessageBox.Show("Publisher must be a 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Publisher ID must be a 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
                         textBoxInput.Focus();
                         return;
@@ -258,9 +273,22 @@ namespace Module3.GUI
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //Validation
             string tempPublisherId = textBoxPublisherId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempPublisherId)))
+            {
+                MessageBox.Show("Publisher ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPublisherId.Clear();
+                textBoxPublisherId.Focus();
+                return;
+            }
             string tempPublisherName = textBoxPublisherName.Text.Trim();
+            if (!(Validator.IsValidName(tempPublisherName)))
+            {
+                MessageBox.Show("Publisher Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPublisherName.Clear();
+                textBoxPublisherName.Focus();
+                return;
+            }
 
             //Operation
             DataRow dr = dtPublishers.NewRow();
@@ -293,6 +321,51 @@ namespace Module3.GUI
                 textBoxPublisherId.Clear();
                 textBoxPublisherName.Focus();
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            //string tempPublisherId = textBoxPublisherId.Text.Trim();
+            //if (!(Validator.isValidTwoDigitId(tempPublisherId)))
+            //{
+            //    MessageBox.Show("Publisher ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxPublisherId.Clear();
+            //    textBoxPublisherId.Focus();
+            //    return;
+            //}
+            //string tempPublisherName = textBoxPublisherName.Text.Trim();
+            //if (!(Validator.IsValidName(tempPublisherName)))
+            //{
+            //    MessageBox.Show("Publisher Name is invalid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxPublisherName.Clear();
+            //    textBoxPublisherName.Focus();
+            //    return;
+            //}
+
+            ////Operation
+            //DataRow dr = dtPublishers.NewRow();
+            //dr = dtPublishers.Rows.Find(tempPublisherId);
+
+            //if (dr != null) //Exists
+            //{
+            //    if (Convert.ToInt32(dr["PublisherId"]) == Convert.ToInt32(tempPublisherId))
+            //    {
+            //        dr.Delete();
+            //        da.Update(dsHiTech, "Publishers");
+            //        MessageBox.Show(dr.RowState.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    }
+
+
+            //}
+            //else //Does not exists
+            //{
+
+            //    MessageBox.Show("Publisher ID is not on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    textBoxPublisherId.Clear();
+            //    textBoxPublisherName.Focus();
+            //}
+
         }
     }
 }

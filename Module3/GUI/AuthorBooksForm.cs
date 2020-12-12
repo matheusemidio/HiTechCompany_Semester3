@@ -30,56 +30,124 @@ namespace Module3.GUI
         {
             //Validation
             string tempISBN = textBoxISBN.Text.Trim();
+            if (!(Validator.isValidISBN(tempISBN)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
+
             string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
+
             string tempYearPublished = textBoxYearPublished.Text.Trim();
+            if (!(Validator.isValidId(tempYearPublished)))
+            {
+                MessageBox.Show("Year must be 4-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxYearPublished.Clear();
+                textBoxYearPublished.Focus();
+                return;
+            }
             string tempEdition = textBoxEdition.Text.Trim();
+            if (!(Validator.isValidCreditLimit(tempEdition)))
+            {
+                MessageBox.Show("Edition must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEdition.Clear();
+                textBoxEdition.Focus();
+                return;
+            }
+
+
 
             //Operation
             DataRow dr;
-            
+            AuthorBook aAuthorBook = new AuthorBook();
             DataRow[] rows = dtAuthorBook.Select();
-            List<AuthorBook> listAuthorBooks = new List<AuthorBook>();
+            List<AuthorBook> listAuthorBooks = aAuthorBook.AuthorBookList();
+            List<AuthorBook> listAuthorBooks1 = new List<AuthorBook>();
             List<AuthorBook> listAuthorBooks2 = new List<AuthorBook>();
             List<AuthorBook> listAuthorBooks3 = new List<AuthorBook>();
 
-
-
-            for (int i = 0; i < rows.Length; i++)
+            foreach(AuthorBook authorBook in listAuthorBooks)
             {
-                if (rows[i]["ISBN"].ToString().ToLower() == tempISBN.ToLower())  //found
+
+                if (authorBook.ISBN.ToString().ToLower() == tempISBN.ToLower())  //found
                 {
                     aAuthorBook = new AuthorBook();
-                    aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
-                    aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
-                    aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
-                    aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
-                    listAuthorBooks.Add(aAuthorBook);
+                    aAuthorBook.ISBN = authorBook.ISBN;
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
+                    listAuthorBooks1.Add(aAuthorBook);
 
                 }
-                if (rows[i]["AuthorId"].ToString().ToLower() == tempAuthorId.ToLower())  //found
+                if (authorBook.AuthorId.ToString().ToLower() == tempAuthorId.ToLower())  //found
                 {
                     aAuthorBook = new AuthorBook();
-                    aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
-                    aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
-                    aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
-                    aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
+                    aAuthorBook.ISBN = authorBook.ISBN.ToString();
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
                     listAuthorBooks2.Add(aAuthorBook);
 
                 }
-                if ((rows[i]["ISBN"].ToString().ToLower() == tempISBN.ToLower()) && (rows[i]["AuthorId"].ToString().ToLower() == tempAuthorId.ToLower()))
+                if ((authorBook.ISBN.ToString().ToLower() == tempISBN.ToLower()) && (authorBook.AuthorId.ToString().ToLower() == tempAuthorId.ToLower()))
                 {
                     aAuthorBook = new AuthorBook();
-                    aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
-                    aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
-                    aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
-                    aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
+                    aAuthorBook.ISBN = authorBook.ISBN;
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
                     listAuthorBooks3.Add(aAuthorBook);
                 }
 
             }
 
-            
-            if (listAuthorBooks == null)//Does not Exists
+
+
+            //for (int i = 0; i < rows.Length; i++)
+            //{
+            //    if (rows[i]["ISBN"].ToString().ToLower() == tempISBN.ToLower())  //found
+            //    {
+            //        aAuthorBook = new AuthorBook();
+            //        aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
+            //        aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
+            //        aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
+            //        aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
+            //        listAuthorBooks.Add(aAuthorBook);
+
+            //    }
+            //    if (rows[i]["AuthorId"].ToString().ToLower() == tempAuthorId.ToLower())  //found
+            //    {
+            //        aAuthorBook = new AuthorBook();
+            //        aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
+            //        aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
+            //        aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
+            //        aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
+            //        listAuthorBooks2.Add(aAuthorBook);
+
+            //    }
+            //    if ((rows[i]["ISBN"].ToString().ToLower() == tempISBN.ToLower()) && (rows[i]["AuthorId"].ToString().ToLower() == tempAuthorId.ToLower()))
+            //    {
+            //        aAuthorBook = new AuthorBook();
+            //        aAuthorBook.ISBN = rows[i]["ISBN"].ToString();
+            //        aAuthorBook.AuthorId = Convert.ToInt32(rows[i]["AuthorId"]);
+            //        aAuthorBook.YearPublished = Convert.ToInt32(rows[i]["YearPublished"]);
+            //        aAuthorBook.Edition = Convert.ToInt32(rows[i]["Edition"]);
+            //        listAuthorBooks3.Add(aAuthorBook);
+            //    }
+
+            //}
+
+
+            if (listAuthorBooks1.Count == 0)//Does not Exists
             {
                 MessageBox.Show("ISBN ID does not exist on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxISBN.Clear();
@@ -87,13 +155,13 @@ namespace Module3.GUI
             }
 
 
-            else if (listAuthorBooks2 == null) //Does not Exists
+            else if (listAuthorBooks2.Count == 0) //Does not Exists
             {
                 MessageBox.Show("Author ID does not exist on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxAuthorId.Clear();
                 textBoxAuthorId.Focus();
             }
-            else if(listAuthorBooks3 != null)   //This connection already exists
+            else if(listAuthorBooks3.Count != 0)   //This connection already exists
             {
                 MessageBox.Show("This ISBN is already linked to this Author ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxISBN.Clear();
@@ -206,15 +274,15 @@ namespace Module3.GUI
                 //Search By ISBN
                 case 0:
                     string tempInput = textBoxInput.Text.Trim();
-                    //if (!(Validator.isValidCustmerId(tempInput)))
-                    //{
-                    //    MessageBox.Show("ISBN must be a 13-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    textBoxInput.Clear();
-                    //    textBoxInput.Focus();
-                    //    return;
-                    //}
-                    
-                    
+                    if (!(Validator.isValidISBN(tempInput)))
+                    {
+                        MessageBox.Show("ISBN must be a 13-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
+                        return;
+                    }
+
+
                     DataRow[] rows = dtAuthorBook.Select();
                     List<AuthorBook> listAuthorBooks = new List<AuthorBook>();
 
@@ -235,7 +303,7 @@ namespace Module3.GUI
                         }
                         
                     }
-                    if (listAuthorBooks == null)
+                    if (listAuthorBooks.Count == 0)
                     {
                         MessageBox.Show("Book does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
@@ -252,13 +320,13 @@ namespace Module3.GUI
                     break;
                 case 1:
                     string tempInput2 = textBoxInput.Text.Trim();
-                    //if (!(Validator.isValidCustmerId(tempInput)))
-                    //{
-                    //    MessageBox.Show("ISBN must be a 13-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    textBoxInput.Clear();
-                    //    textBoxInput.Focus();
-                    //    return;
-                    //}
+                    if (!(Validator.isValidTwoDigitId(tempInput2)))
+                    {
+                        MessageBox.Show("Author ID must be a 2-digit number", "Invalid Customer ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBoxInput.Clear();
+                        textBoxInput.Focus();
+                        return;
+                    }
 
 
                     DataRow[] rows2 = dtAuthorBook.Select();
@@ -293,7 +361,7 @@ namespace Module3.GUI
                         }
 
                     }
-                    if (listAuthorBooks2 == null)
+                    if (listAuthorBooks2.Count == 0)
                     {
                         MessageBox.Show("Author does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBoxInput.Clear();
@@ -344,6 +412,142 @@ namespace Module3.GUI
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+
+            //Validation
+            string tempISBN = textBoxISBN.Text.Trim();
+            if (!(Validator.isValidISBN(tempISBN)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
+
+            string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
+
+            string tempYearPublished = textBoxYearPublished.Text.Trim();
+            if (!(Validator.isValidId(tempYearPublished)))
+            {
+                MessageBox.Show("Year must be 4-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxYearPublished.Clear();
+                textBoxYearPublished.Focus();
+                return;
+            }
+            string tempEdition = textBoxEdition.Text.Trim();
+            if (!(Validator.isValidCreditLimit(tempEdition)))
+            {
+                MessageBox.Show("Edition must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEdition.Clear();
+                textBoxEdition.Focus();
+                return;
+            }
+
+            //Operation
+            AuthorBook aAuthorBook = new AuthorBook();
+            DataRow dr = dtAuthorBook.NewRow();
+
+            //DataRow[] rows = dtAuthorBook.Select();
+            List<AuthorBook> listAuthorBooks = aAuthorBook.AuthorBookList();
+            List<AuthorBook> listAuthorBooks1 = new List<AuthorBook>();
+            List<AuthorBook> listAuthorBooks2 = new List<AuthorBook>();
+            List<AuthorBook> listAuthorBooks3 = new List<AuthorBook>();
+
+            foreach (AuthorBook authorBook in listAuthorBooks)
+            {
+
+                if (authorBook.ISBN.ToString().ToLower() == tempISBN.ToLower())  //found
+                {
+                    aAuthorBook = new AuthorBook();
+                    aAuthorBook.ISBN = authorBook.ISBN;
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
+                    listAuthorBooks1.Add(aAuthorBook);
+
+                }
+                if (authorBook.AuthorId.ToString().ToLower() == tempAuthorId.ToLower())  //found
+                {
+                    aAuthorBook = new AuthorBook();
+                    aAuthorBook.ISBN = authorBook.ISBN.ToString();
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
+                    listAuthorBooks2.Add(aAuthorBook);
+
+                }
+                if ((authorBook.ISBN.ToString().ToLower() == tempISBN.ToLower()) && (authorBook.AuthorId.ToString().ToLower() == tempAuthorId.ToLower()))
+                {
+                    aAuthorBook = new AuthorBook();
+                    aAuthorBook.ISBN = authorBook.ISBN;
+                    aAuthorBook.AuthorId = Convert.ToInt32(authorBook.AuthorId);
+                    aAuthorBook.YearPublished = Convert.ToInt32(authorBook.YearPublished);
+                    aAuthorBook.Edition = Convert.ToInt32(authorBook.Edition);
+                    listAuthorBooks3.Add(aAuthorBook);
+                }
+
+            }
+
+
+
+            if (listAuthorBooks1.Count == 0)//Does not Exists
+            {
+                MessageBox.Show("ISBN ID does not exist on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+            }
+
+
+            else if (listAuthorBooks2.Count == 0) //Does not Exists
+            {
+                MessageBox.Show("Author ID does not exist on the Database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+            }
+            else if (listAuthorBooks3.Count == 1)   //This connection already exists
+            {
+                dr = dtAuthorBook.NewRow();
+                if ((listAuthorBooks3[0].ISBN.ToString().Trim() == tempISBN) && (listAuthorBooks3[0].AuthorId.ToString().Trim() == tempAuthorId)) {
+                    dr["ISBN"] = tempISBN;
+                    dr["AuthorId"] = tempAuthorId;
+                    dr["YearPublished"] = tempYearPublished;
+                    dr["Edition"] = tempEdition;
+                    //dtAuthorBook.Rows.Add(dr);
+                    //dtAuthorBook.AcceptChanges();
+
+                    da.Update(dsHiTech, "AuthorBooks");
+
+                    MessageBox.Show("AuthorBook information was saved successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(dr.RowState.ToString(), "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxISBN.Clear();
+                    textBoxAuthorId.Clear();
+                    textBoxYearPublished.Clear();
+                    textBoxEdition.Clear();
+                }
+                else //Error
+                {
+                    MessageBox.Show("Some error occurred1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(listAuthorBooks3[0].ISBN.ToString() + "\n" + listAuthorBooks3[0].AuthorId.ToString());
+                }
+
+
+
+            }
+            else //Error
+            {
+                MessageBox.Show("Some error occurred2", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
 
         }
