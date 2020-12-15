@@ -56,6 +56,8 @@
             this.publisherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.authorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.authorBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonListAuthors = new System.Windows.Forms.Button();
+            this.buttonListBooks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -85,7 +87,7 @@
             // buttonListAuthorBooks
             // 
             this.buttonListAuthorBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListAuthorBooks.Location = new System.Drawing.Point(184, 263);
+            this.buttonListAuthorBooks.Location = new System.Drawing.Point(209, 263);
             this.buttonListAuthorBooks.Name = "buttonListAuthorBooks";
             this.buttonListAuthorBooks.Size = new System.Drawing.Size(127, 26);
             this.buttonListAuthorBooks.TabIndex = 37;
@@ -339,11 +341,35 @@
             this.authorBooksToolStripMenuItem.Text = "AuthorBooks";
             this.authorBooksToolStripMenuItem.Click += new System.EventHandler(this.authorBooksToolStripMenuItem_Click_1);
             // 
+            // buttonListAuthors
+            // 
+            this.buttonListAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonListAuthors.Location = new System.Drawing.Point(342, 262);
+            this.buttonListAuthors.Name = "buttonListAuthors";
+            this.buttonListAuthors.Size = new System.Drawing.Size(127, 26);
+            this.buttonListAuthors.TabIndex = 43;
+            this.buttonListAuthors.Text = "List Authors";
+            this.buttonListAuthors.UseVisualStyleBackColor = true;
+            this.buttonListAuthors.Click += new System.EventHandler(this.buttonListAuthors_Click);
+            // 
+            // buttonListBooks
+            // 
+            this.buttonListBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonListBooks.Location = new System.Drawing.Point(76, 263);
+            this.buttonListBooks.Name = "buttonListBooks";
+            this.buttonListBooks.Size = new System.Drawing.Size(127, 26);
+            this.buttonListBooks.TabIndex = 44;
+            this.buttonListBooks.Text = "List Books";
+            this.buttonListBooks.UseVisualStyleBackColor = true;
+            this.buttonListBooks.Click += new System.EventHandler(this.buttonListBooks_Click);
+            // 
             // AuthorBooksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 479);
+            this.Controls.Add(this.buttonListBooks);
+            this.Controls.Add(this.buttonListAuthors);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.dataGridViewCustomers);
             this.Controls.Add(this.buttonExit);
@@ -394,5 +420,7 @@
         private System.Windows.Forms.ToolStripMenuItem publisherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem authorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem authorBooksToolStripMenuItem;
+        private System.Windows.Forms.Button buttonListAuthors;
+        private System.Windows.Forms.Button buttonListBooks;
     }
 }

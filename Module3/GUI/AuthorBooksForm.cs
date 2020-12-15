@@ -549,7 +549,58 @@ namespace Module3.GUI
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            string tempISBN = textBoxISBN.Text.Trim();
+            if (!(Validator.isValidISBN(tempISBN)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
 
+            string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
+            DialogResult answer = MessageBox.Show("Are you sure you want to delete this AuthorBook?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(DialogResult == answer)
+            {
+                MessageBox.Show("Deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void buttonListAuthors_Click(object sender, EventArgs e)
+        {
+            List<Author> listAuthor = new List<Author>();
+            Author author = new Author();
+            listAuthor = author.AuthorList();
+            if (listAuthor == null)
+            {
+                MessageBox.Show("Some error occured! Database is empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dataGridViewCustomers.DataSource = listAuthor;
+            }
+        }
+
+        private void buttonListBooks_Click(object sender, EventArgs e)
+        {
+            List<Book> listBook = new List<Book>();
+            Book customer = new Book();
+            listBook = customer.BookList();
+            if (listBook == null)
+            {
+                MessageBox.Show("Some error occured! Database is empty", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dataGridViewCustomers.DataSource = listBook;
+            }
         }
     }
 }

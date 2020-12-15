@@ -466,15 +466,20 @@ namespace Module3.GUI
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            ////Validation
-            //string tempIsbn = textBoxISBN.Text.Trim();
-            //if (!(Validator.isValidISBN(tempIsbn)))
-            //{
-            //    MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    textBoxISBN.Clear();
-            //    textBoxISBN.Focus();
-            //    return;
-            //}
+            //Validation
+            string tempIsbn = textBoxISBN.Text.Trim();
+            if (!(Validator.isValidISBN(tempIsbn)))
+            {
+                MessageBox.Show("ISBN must be 13-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxISBN.Clear();
+                textBoxISBN.Focus();
+                return;
+            }
+            DialogResult answer = MessageBox.Show("Are you sure you want to delete this Book? This will delete everything related to that as well.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == answer)
+            {
+                MessageBox.Show("Deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //string tempQOH = textBoxQOH.Text.Trim();
             //if (!(Validator.isValidUnitPrice(tempQOH)))
             //{

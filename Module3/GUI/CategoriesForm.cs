@@ -328,14 +328,19 @@ namespace Module3.GUI
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            //string tempCategoryId = textBoxCategoryID.Text.Trim();
-            //if (!(Validator.isValidTwoDigitId(tempCategoryId)))
-            //{
-            //    MessageBox.Show("Category ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    textBoxCategoryID.Clear();
-            //    textBoxCategoryID.Focus();
-            //    return;
-            //}
+            string tempCategoryId = textBoxCategoryID.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempCategoryId)))
+            {
+                MessageBox.Show("Category ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCategoryID.Clear();
+                textBoxCategoryID.Focus();
+                return;
+            }
+            DialogResult answer = MessageBox.Show("Are you sure you want to delete this Categories? This will delete everything related to that as well.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == answer)
+            {
+                MessageBox.Show("Deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //string tempCategoryName = textBoxCategoryName.Text.Trim();
             //if (!(Validator.IsValidName(tempCategoryName)))
             //{

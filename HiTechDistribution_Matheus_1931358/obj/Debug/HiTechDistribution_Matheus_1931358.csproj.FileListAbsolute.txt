@@ -18,3 +18,8 @@ D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistr
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module3.exe
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module3.pdb
 D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module3.exe.config
+D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module4.exe
+D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\EntityFramework.dll
+D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module4.pdb
+D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\Module4.exe.config
+D:\LaSalle\semester 3\Multi Tier App\finalProject\HiTechDistribution\HiTechDistribution_Matheus_1931358\bin\Debug\EntityFramework.xml

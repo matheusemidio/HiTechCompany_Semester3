@@ -12,6 +12,7 @@ using Module1.Validation;
 using Module1.GUI;
 using Module2.GUI;
 using Module3.GUI;
+using Module4.GUI;
 
 
 namespace HiTechDistribution_Matheus_1931358.GUI
@@ -77,7 +78,9 @@ namespace HiTechDistribution_Matheus_1931358.GUI
                         }
                         if (emp.SearchEmployee(user.UserId).JobId == 4)
                         {
-
+                            OrderClerkForm orderClerkForm = new OrderClerkForm();
+                            this.Hide();
+                            orderClerkForm.ShowDialog();
                         }
                         if (emp.SearchEmployee(user.UserId).JobId == 5)
                         {
@@ -101,7 +104,7 @@ namespace HiTechDistribution_Matheus_1931358.GUI
             }
             else
             {
-                MessageBox.Show("User does not exist.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Wrong User ID or Password.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxUserId.Clear();
             }
         }

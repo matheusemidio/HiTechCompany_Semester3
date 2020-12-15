@@ -378,15 +378,21 @@ namespace Module3.GUI
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            ////Validation
-            //string tempAuthorId = textBoxAuthorId.Text.Trim();
-            //if (!(Validator.isValidTwoDigitId(tempAuthorId)))
-            //{
-            //    MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    textBoxAuthorId.Clear();
-            //    textBoxAuthorId.Focus();
-            //    return;
-            //}
+
+            //Validation
+            string tempAuthorId = textBoxAuthorId.Text.Trim();
+            if (!(Validator.isValidTwoDigitId(tempAuthorId)))
+            {
+                MessageBox.Show("Author ID must be 2-digit number", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxAuthorId.Clear();
+                textBoxAuthorId.Focus();
+                return;
+            }
+            DialogResult answer = MessageBox.Show("Are you sure you want to delete this Author? This will delete everything related to that as well.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == answer)
+            {
+                MessageBox.Show("Deleted", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //string tempAuthorFirstName = textBoxFirstName.Text.Trim();
             //if (!(Validator.IsValidName(tempAuthorFirstName)))
             //{
